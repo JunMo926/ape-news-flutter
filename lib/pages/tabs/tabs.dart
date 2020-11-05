@@ -34,9 +34,9 @@ class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("ape news"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("ape news"),
+      // ),
       body: this._pageList[this._currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: this._currentIndex,

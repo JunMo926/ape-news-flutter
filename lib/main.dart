@@ -18,6 +18,8 @@ class _ApeAppState extends State<ApeApp> {
       initialRoute: '/',
       onGenerateRoute: onGenerateRoute,
       debugShowCheckedModeBanner: false,
+      // 主题颜色
+      theme: ThemeData(primaryColor: Colors.white),
     );
   }
 }
