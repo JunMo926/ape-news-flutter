@@ -7,7 +7,12 @@ class LearningPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("LearningPage"),
+      child: Center(
+        child: Text(
+          "LearningPage",
+          style: TextStyle(color: Colors.red),
+        ),
+      ),
     );
   }
 }

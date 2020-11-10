@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
-
   _HomePageState createState() => _HomePageState();
 }
 
@@ -11,66 +10,152 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: InkWell(
-            borderRadius: BorderRadius.circular(30),
-            child: Container(
-              height: ScreenAdapter.height(80),
-              padding: EdgeInsets.only(left: ScreenAdapter.width(15)),
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(233, 233, 233, 0.8),
-                borderRadius: BorderRadius.circular(30),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: InkWell(
+          borderRadius: BorderRadius.circular(30),
+          child: Container(
+            height: ScreenAdapter.height(60),
+            padding: EdgeInsets.only(left: ScreenAdapter.width(20)),
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(233, 233, 233, 0.8),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(Icons.search, color: Colors.black45),
+                SizedBox(width: ScreenAdapter.width(20)),
+                Text(
+                  "Java开发",
+                  style: TextStyle(
+                    color: Colors.black26,
+                    fontSize: ScreenAdapter.size(25),
+                  ),
+                )
+              ],
+            ),
+          ),
+          onTap: () {
+            // TODO
+          },
+        ),
+        centerTitle: true,
+        titleSpacing: ScreenAdapter.width(20),
+        actions: [
+          IconButton(
+            splashRadius: ScreenAdapter.height(30),
+            icon: Icon(Icons.add),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          Container(
+            width: ScreenAdapter.getScreenWidth(),
+            height: ScreenAdapter.height(60),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border(
+                bottom: BorderSide(color: Colors.black12, width: 1),
               ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(Icons.search, color: Colors.black38),
-                  Text(
-                    "Java开发",
-                    style: TextStyle(
-                      color: Colors.black38,
-                      fontSize: ScreenAdapter.size(30),
+            ),
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                Container(
+                  width: ScreenAdapter.width(150),
+                  child: Center(
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "关注",
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: ScreenAdapter.size(29),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: SizedBox(
+                            height: 2,
+                            width: ScreenAdapter.width(30),
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(2),
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  )
-                ],
+                  ),
+                ),
+                Container(
+                  width: ScreenAdapter.width(150),
+                  child: Center(
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "推荐",
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: ScreenAdapter.size(29),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  width: ScreenAdapter.width(150),
+                  child: Center(
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "热榜",
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: ScreenAdapter.size(29),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              height: ScreenAdapter.height(60),
+              margin: EdgeInsets.only(right: ScreenAdapter.width(15)),
+              child: IconButton(
+                iconSize: 20,
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                color: Colors.black54,
+                constraints: BoxConstraints(),
+                icon: Icon(Icons.format_indent_increase),
+                onPressed: () {},
               ),
             ),
-            onTap: () {
-              // TODO
-            },
           ),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {},
-            ),
-          ],
-          bottom: TabBar(
-            indicatorSize: TabBarIndicatorSize.label,
-            indicatorColor: Colors.red,
-            tabs: [
-              Tab(text: "关注"),
-              Tab(text: "推荐"),
-              Tab(text: "热榜"),
-            ],
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            ListView(
-              children: [Text("第一页")],
-            ),
-            ListView(
-              children: [Text("第二页")],
-            ),
-            ListView(
-              children: [Text("第三页")],
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }

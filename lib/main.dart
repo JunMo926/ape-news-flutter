@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'routers/router.dart';
 
@@ -12,8 +13,15 @@ class ApeApp extends StatefulWidget {
 }
 
 class _ApeAppState extends State<ApeApp> {
+  
   @override
   Widget build(BuildContext context) {
+        // 设置状态栏颜色
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+      ),
+    );
     return MaterialApp(
       initialRoute: '/',
       onGenerateRoute: onGenerateRoute,
