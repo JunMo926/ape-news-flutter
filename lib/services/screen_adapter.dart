@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 屏幕适配器
 class ScreenAdapter {
-
   /// 初始化
   static init(context) {
     ScreenUtil.init(context,
@@ -45,9 +44,14 @@ class ScreenAdapter {
   static size(double value) {
     return ScreenUtil().setSp(value);
   }
-  
+
   /// 状态栏高度 dp 刘海屏会更高
   static statusBarHeight() {
     return ScreenUtil().statusBarHeight;
+  }
+
+  /// 底部安全区距离 dp
+  static bottomBarHeight() {
+    return ScreenUtil().bottomBarHeight;
   }
 }
